@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Django Central</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <meta name="google" content="notranslate" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous" />
+    </head>
+
+    <body>
+        <style>
+            body {
+            font-family: "Roboto", sans-serif;
+            font-size: 17px;
+            background-color: #1f1f1f;
+        }
+        .shadow {
+            box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+        }
+        .btn-danger {
+            color: #fff;
+            background-color: #f00000;
+            border-color: #dc281e;
+        }
+        .masthead {
+            background: #3398E1;
+            height: auto;
+            padding-bottom: 15px;
+            box-shadow: 0 16px 48px rgb(39, 77, 114);
+            padding-top: 10px;
+        }
+        .custom-dark {
+            background-color: #1f1f1f !important;
+        }
+
+        .custom-dark .navbar-brand,
+        .custom-dark .nav-link {
+            color: #b57edc !important;
+        }
+
+        .custom-dark .nav-link:hover {
+            color: #ffffff !important;
+        }
+
+        .text-light-gray {
+            color: #cccccc;
+        }
+
+        .text-light-gray h1,
+        .text-light-gray p,
+        .text-light-gray label,
+        .text-light-gray input,
+        .text-light-gray .form-control {
+            color: #cccccc;
+        }
+
+        .text-link {
+            color: #b57edc;
+            text-decoration: underline;
+        }
+
+        .text-link:hover {
+            color: #d6a4f0;
+            text-decoration: none;
+        }
+
+        .masthead {
+            background-color: #b57edc;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+        }
+
+        .masthead h3,
+        .masthead p {
+            color: #1f1f1f !important;
+        }
+
+        .text-lavender {
+            color: #b57edc;
+        }
+
+        .card.bg-dark {
+            background-color: #2a2a2a;
+        }
+
+        .card-title {
+            font-weight: 600;
+        }
+
+        .btn-outline-light {
+            border-color: #b57edc;
+            color: #b57edc;
+        }
+
+        .btn-outline-light:hover {
+            background-color: #b57edc;
+            color: #1f1f1f;
+        }
+
+        select.form-control {
+            background-color: #2a2a2a;
+            color: #b57edc;
+            border: 1px solid #b57edc;
+          }
+
+        select.form-control:focus {
+            background-color: #2a2a2a;
+            color: #b57edc;
+            border-color: #d6a4f0;
+            box-shadow: none;
+        }
+
+        label {
+            color: #b57edc;
+        }
+
+        .btn-cancel {
+            background-color: #b57edc;
+            border: 1px solid #1f1f1f;
+            color: #444444;
+        }
+
+        .btn-cancel:hover {
+            background-color: #b57edc;
+            border-color: #444444;
+            color: #1f1f1f;
+        }
+    </style>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light custom-dark">
+            <a class="navbar-brand" href="/">TaskTrail</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarText" aria-controls="navbarText" aria-expanded="False"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Welcome, {{ user.username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+        <!-- Footer -->
+        <footer class="py-3 bg-grey">
+            <p class="m-0 text-light-gray text-center ">right &copy; Django Central</p>
+        </footer>
+    </body>
+</html>

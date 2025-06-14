@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container py-4">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto">
+      <div class="card mb-4 shadow-sm rounded border-0 bg-dark text-light">
+        <div class="card-body">
+          <h2 class="card-title text-lavender">{{ object.title }}</h2>
+          <p class="card-subtitle mb-2 text-muted small">
+            {{ object.author }} • {{ object.created_on }}
+          </p>
+          <p class="mb-3"><strong>Status:</strong> {{ object.get_taskstatus_display }}</p>
+
+          <a href="{% url 'update_task_status' object.pk %}" class="btn btn-outline-light btn-sm mt-2">
+            Edit Status
+          </a>
+
+          <div class="card-text mt-4">
+            {{ object.content|safe }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
