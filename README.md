@@ -37,7 +37,7 @@ TaskTrail is a lightweight, full-stack task and project management tool designed
 > Ensure you have Docker + Docker Compose installed.
 
 ```bash
-# Clone the repository
+# Clone the repository and change directory
 cd tasktrail
 
 # Install dependencies
