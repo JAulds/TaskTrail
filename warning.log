@@ -841,3 +841,5 @@ Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 3395
 Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 3395
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3395
