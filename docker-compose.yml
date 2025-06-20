@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:15.2
@@ -7,12 +5,12 @@ services:
     env_file:
       - .env
     ports:
-      - "127.0.0.1:$(DATABASE_PORT}:${DATABASE_PORT}"
+      - "127.0.0.1:${DATABASE_PORT}:${DATABASE_PORT}"
     environment:
       - PGPORT=${DATABASE_PORT}
-      - POSTGRES_DB=$(DATABASE_NAME)
-      - POSTGRES_USER=$(DATABASE_USER}
-      - POSTGRES_PASSWORD=$(DATABASE_PASS)
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASS}
     volumes:
       - postgres_volumn:/var/lib/postgresql/data
 
@@ -37,7 +35,7 @@ services:
     ports:
       - 81:80
     depends_on:
-      - web
+      - api
 
 volumes:
   postgres_volumn:

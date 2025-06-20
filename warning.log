@@ -839,3 +839,5 @@ Not Found: /accounts/login/
 "GET /accounts/login/?next=/task/1/update_status/ HTTP/1.1" 404 3435
 Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 3395
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 3395
