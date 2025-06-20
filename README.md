@@ -23,7 +23,7 @@ TaskTrail is a lightweight, full-stack task and project management tool designed
 |-------------|-------------------------------|
 | Frontend    | React, Axios, React Router    |
 | Backend     | Django REST Framework         |
-| Database    | SQLite                        |
+| Database    | SQLite, PostgreSQL            |
 | Caching     | Redis                         |
 | Container   | Docker, docker-compose        |
 | Web server  | Nginx                         |
