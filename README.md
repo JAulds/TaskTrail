@@ -1,6 +1,6 @@
 # TaskTrail
 
-TaskTrail is a lightweight, full-stack task and project management tool designed for small teams, startups, and NGOs. Built using React, Django REST Framework, PostgreSQL, Redis, and Docker — it enables secure role-based task collaboration with modern DevOps support.
+TaskTrail is a lightweight, full-stack task and project management tool designed for small teams, startups, and NGOs. Built using React, Django REST Framework, PostgreSQL, Redis, and Docker. It enables secure role-based task collaboration with modern DevOps support.
 
 ---
 
