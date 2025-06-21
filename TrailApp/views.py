@@ -3,7 +3,6 @@ from django.views import generic
 from .models import Task
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import NewUserForm, TaskStatusForm
-from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
