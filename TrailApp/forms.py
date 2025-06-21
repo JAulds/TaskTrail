@@ -1,8 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Task, TASKSTATUS
-# Create your forms here.
+
+from TrailApp.models import Task
+
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
 

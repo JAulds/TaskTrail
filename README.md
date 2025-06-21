@@ -40,21 +40,18 @@ TaskTrail is a lightweight, full-stack task and project management tool designed
 # Clone the repository and change directory
 cd tasktrail
 
-# Install dependencies
-pip install -r requirement.txt
+# Run docker-compose
+docker-compose up -d
 
-# build docker-compose
-docker-compose build
-
-# Start server
-python manage.py runserver
+# Go to the website
+http://localhost:8000/
 
 # --------- Other Features ---------
 
-# Add superuser/admin
+# Add superuser/admin for local
 python manage.py createsuperuser
 
-# Run tests
+# Run tests local
 python manage.py test TrailApp
 
 # Access admin page

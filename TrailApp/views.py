@@ -1,18 +1,19 @@
-from django.http import HttpResponse
 from django.views import generic
-from .models import Task
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import NewUserForm, TaskStatusForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+
+from TrailApp.serializer import TaskSerializer
+from TrailApp.models import Task
+from TrailApp.forms import NewUserForm, TaskStatusForm
+
 from rest_framework import viewsets
-from .serializer import TaskSerializer
 import datetime
 from datetime import date, timedelta
 import logging
 from collections import defaultdict
-from django.contrib.auth.decorators import login_required
 
 logger = logging.getLogger(__name__)
 
@@ -48,7 +49,7 @@ class TaskList(generic.ListView):
 
             grouped_tasks[group_label].append(task)
 
-        logger.warning("Accessed Home Page at " + str(datetime.datetime.now()) + " hours!")
+        logger.info("Accessed Home Page at " + str(datetime.datetime.now()) + " hours!")
 
         context['grouped_tasks'] = dict(grouped_tasks)
         return context
@@ -72,7 +73,7 @@ def register_request(request):
             return redirect("home")
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
-    logger.warning("Register was accessed at " + str(datetime.datetime.now()) + " hours!")
+    logger.info("Register was accessed at " + str(datetime.datetime.now()) + " hours!")
     return render (request=request, template_name="register.html", context={"register_form":form})
 
 def login_request(request):
@@ -85,7 +86,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                logger.warning("Logged in at " + str(datetime.datetime.now()) + " hours!")
+                logger.info("Logged in at " + str(datetime.datetime.now()) + " hours!")
                 return redirect("home")
             else:
                 messages.error(request,"Invalid username or password.")
@@ -97,7 +98,7 @@ def login_request(request):
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    logger.warning("Logged out at " + str(datetime.datetime.now()) + " hours!")
+    logger.info("Logged out at " + str(datetime.datetime.now()) + " hours!")
     return redirect("login")
 
 @login_required

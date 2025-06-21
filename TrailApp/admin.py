@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Task
+
+from TrailApp.models import Task
 
 class TaskAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'status','created_on', 'due')
