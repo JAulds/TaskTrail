@@ -130,7 +130,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#visit /welcome page to see console logging
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
