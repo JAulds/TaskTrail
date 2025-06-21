@@ -6,12 +6,12 @@ TaskTrail is a lightweight, full-stack task and project management tool designed
 
 ## Features
 
-- **JWT Authentication** with roles: `admin`, `member`
+- **Django Authentication** with roles: `admin`, `member`
 - Create & manage **projects and tasks**
 - **Status updates** and assignments
 - Role-based access control
-- Dockerized backend + frontend + database + Redis
-- Redis caching for homepage/project/task data
+- Dockerized backend + frontend + database
+- Memcached caching for homepage/project/task data
 - Structured logging for backend
 - Unit and E2E testing support
 
@@ -21,13 +21,13 @@ TaskTrail is a lightweight, full-stack task and project management tool designed
 
 | Layer       | Stack                         |
 |-------------|-------------------------------|
-| Frontend    | React, Axios, React Router    |
+| Frontend    | Django, HTML                  |
 | Backend     | Django REST Framework         |
 | Database    | SQLite, PostgreSQL            |
-| Caching     | Redis                         |
+| Caching     | Memcached, Dummy              |
 | Container   | Docker, docker-compose        |
-| Web server  | Nginx                         |
-| Auth        | JWT via SimpleJWT             |
+| Web server  | Nginx, Gunicorn               |
+| Auth        | Django Authentication         |
 | Testing     | Django TestCase               |
 
 ---
@@ -44,7 +44,7 @@ cd tasktrail
 pip install -r requirement.txt
 
 # build docker-compose
-docker-compose build  
+docker-compose build
 
 # Start server
 python manage.py runserver
@@ -61,4 +61,3 @@ python manage.py test TrailApp
 # Add /admin to end of base url to access and login to admin page to add tasks
 # Anyone who has an account can mark the status of the task by using the website (Not Started, In Progress, Completed)
 # Tasks are sorted by closest due date and grouped by the week they are due
-
