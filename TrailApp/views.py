@@ -13,7 +13,6 @@ from datetime import date, timedelta
 import logging
 from collections import defaultdict
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.cache import cache_page
 
 logger = logging.getLogger(__name__)
 
